@@ -63,6 +63,47 @@ document.getElementById('download-resume')?.addEventListener('click', (e) => {
   }
 })
 
+function enableSafeDownload(buttonId, message) {
+  const button = document.getElementById(buttonId);
+
+  if (!button) return;
+
+  button.addEventListener("click", function (e) {
+    const link = e.currentTarget;
+    const href = link.getAttribute("href");
+
+    // Prevent download if file path is empty or placeholder
+    if (!href || href === "#") {
+      e.preventDefault();
+
+      const toast = document.getElementById("toast");
+      if (!toast) return;
+
+      const originalText = toast.textContent;
+
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+        toast.textContent = originalText;
+      }, 3000);
+    }
+  });
+}
+
+// Resume
+enableSafeDownload(
+  "download-resume",
+  "Add resume.pdf to project folder to enable download"
+);
+
+// Profile Picture
+enableSafeDownload(
+  "download-propic",
+  "Add propic.jpeg to project folder to enable download"
+);
+
 /*==================== MENU SHOW & HIDE ====================*/
 const navMenu = document.getElementById('nav-menu')
 const navToggle = document.getElementById('nav-toggle')
@@ -238,3 +279,4 @@ if (revealTargets.length) {
   }, { threshold: 0.15 })
   revealTargets.forEach(el => io.observe(el))
 }
+
