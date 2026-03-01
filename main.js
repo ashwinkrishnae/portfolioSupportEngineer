@@ -280,3 +280,173 @@ if (revealTargets.length) {
   revealTargets.forEach(el => io.observe(el))
 }
 
+/*==================== FULL CONTENT PROTECTION ====================*/
+
+(function () {
+  "use strict";
+
+  /* ---------- Disable Right Click ---------- */
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
+
+  /* ---------- Disable Drag Selection ---------- */
+  document.addEventListener("selectstart", function (e) {
+    e.preventDefault();
+  });
+
+  /* ---------- Disable Copy / Cut ---------- */
+  document.addEventListener("copy", function (e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener("cut", function (e) {
+    e.preventDefault();
+  });
+
+  /* ---------- Disable Keyboard Shortcuts ---------- */
+  document.addEventListener("keydown", function (e) {
+
+    const key = e.key.toLowerCase();
+
+    // Disable Ctrl combinations
+    if (e.ctrlKey) {
+      if (
+        key === "c" ||   // Copy
+        key === "x" ||   // Cut
+        key === "u" ||   // View Source
+        key === "s" ||   // Save
+        key === "a" ||   // Select All
+        key === "p" ||   // Print
+        key === "i" ||   // DevTools
+        key === "j"      // DevTools
+      ) {
+        e.preventDefault();
+      }
+    }
+
+    // Disable Ctrl + Shift + I / J / C
+    if (e.ctrlKey && e.shiftKey) {
+      if (key === "i" || key === "j" || key === "c") {
+        e.preventDefault();
+      }
+    }
+
+    // Disable F12
+    if (e.key === "F12") {
+      e.preventDefault();
+    }
+  });
+
+  /* ---------- Blur Page If DevTools Open ---------- */
+  let devtoolsOpen = false;
+
+  setInterval(function () {
+    const threshold = 160;
+
+    if (
+      window.outerWidth - window.innerWidth > threshold ||
+      window.outerHeight - window.innerHeight > threshold
+    ) {
+      if (!devtoolsOpen) {
+        devtoolsOpen = true;
+        document.body.style.filter = "blur(10px)";
+        document.body.style.pointerEvents = "none";
+      }
+    } else {
+      if (devtoolsOpen) {
+        devtoolsOpen = false;
+        document.body.style.filter = "none";
+        document.body.style.pointerEvents = "auto";
+      }
+    }
+  }, 500);
+
+})();
+
+(function () {
+    "use strict";
+
+    const __guard = (() => {
+        const _isDevToolsOpen = () => {
+            const threshold = 160;
+            return (
+                window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold
+            );
+        };
+
+        setInterval(() => {
+            if (_isDevToolsOpen()) {
+                document.body.innerHTML = "";
+                window.location.href = "about:blank";
+            }
+        }, 1000);
+    })();
+
+    const __module = (() => {
+
+        const __interop = (m) => (m && m.__esModule ? m : { default: m });
+
+        const __e = __interop(window.__mod155 || {});
+        const __u = __interop(window.__mod407 || {});
+        const __i = __interop(window.__mod985 || {});
+        const __o = window.__mod496 || {};
+        const __a = __interop(window.__mod86 || {});
+
+        const __c = __i.default?.isMshop;
+        const __l = __i.default?.mashIsAUIAvailable;
+        const __s = __i.default?.mashHasLaunchIntentUrl;
+        const __h = __i.default?.mashHasOpenInExternalBrowser;
+
+        const shouldNavigatePrimeNowUrl = (url) => {
+            return !!(__c && __l && __e.default?.(url));
+        };
+
+        const navigatePrimeNowUrl = (url, fallback) => {
+
+            if (__s) {
+                return __o.tryNavigationMethod?.(() => {
+                    __u.default?.mash?.launchIntentURL?.execute({
+                        fallbackUrl: __a.default?.(fallback),
+                        url: url
+                    });
+                }, __o.methodNames?.MASH_LAUNCH_INTENT_URL);
+            }
+
+            if (__h) {
+                return __o.tryNavigationMethod?.(() => {
+                    return __u.default?.mash?.openInExternalBrowser?.execute({
+                        url: url
+                    });
+                }, __o.methodNames?.MASH_OPEN_IN_EXTERNAL_BROWSER);
+            }
+
+            return false;
+        };
+
+        return {
+            shouldNavigatePrimeNowUrl,
+            navigatePrimeNowUrl
+        };
+
+    })();
+
+    Object.defineProperty(window, "Creative", {
+        value: Object.freeze(__module),
+        writable: false,
+        configurable: false
+    });
+
+    // Disable common copy shortcuts
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", e => {
+        if (
+            e.ctrlKey &&
+            ["c", "u", "s", "i"].includes(e.key.toLowerCase())
+        ) {
+            e.preventDefault();
+        }
+    });
+
+})();
