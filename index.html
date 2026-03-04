@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Unicons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -14,15 +16,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
     <link rel="stylesheet" href="styles.css">
-    <title>Ashwin Krishna E | Junior Support Engineer</title>
+
+    <title>Ashwin Krishna E | Support Engineer</title>
 </head>
+
 <body>
+
 <a href="#" class="scroll-up" id="scroll-up" aria-label="Scroll to top">
     <i class="uil uil-arrow-up"></i>
 </a>
+
 <header class="header" id="header">
     <nav class="nav container">
         <a href="#" class="nav__logo">Ashwin Krishna E</a>
+
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list grid">
                 <li><a href="#home" class="nav__link active-link"><i class="uil uil-estate nav__icon"></i>Home</a></li>
@@ -34,6 +41,7 @@
             </ul>
             <i class="uil uil-times nav__close" id="nav-close"></i>
         </div>
+
         <div class="nav__btns">
             <i class="uil uil-moon change-theme" id="theme-button"></i>
             <div class="nav__toggle" id="nav-toggle">
@@ -41,23 +49,144 @@
             </div>
         </div>
     </nav>
-    </header>
+</header>
+
 <main class="main">
+
+<!-- ================= HOME ================= -->
 <section class="home section section--full reveal" id="home">
     <div class="home__container container grid">
         <div class="home__content grid">
+
             <div class="home__social">
-                <a href="https://www.linkedin.com/in/ashwin-krishna-e-004333382/" target="_blank" class="home__social-icon">
+                <a href="https://www.linkedin.com/in/ashwin-krishna-e-004333382/" target="_blank" rel="noopener noreferrer" class="home__social-icon">
                     <i class="uil uil-linkedin"></i>
                 </a>
-                <a href="https://github.com/ashwinkrishnae" target="_blank" class="home__social-icon">
+                <a href="https://github.com/ashwinkrishnae" target="_blank" rel="noopener noreferrer" class="home__social-icon">
                     <i class="uil uil-github"></i>
                 </a>
-                <a href="https://www.instagram.com/chiyaan.ashwin/" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="home__social-icon">
+                <a href="https://www.instagram.com/chiyaan.ashwin/" target="_blank" rel="noopener noreferrer" class="home__social-icon">
                     <i class="uil uil-instagram"></i>
+                </a>
+            </div>
+
+            <div class="home__img">
+                <img src="propic.jpeg" alt="Ashwin Krishna" class="profile-img">
+            </div>
+
+            <div class="home__data">
+                <h1 class="home__title">
+                    <span class="typing-text" id="typing-text"></span>
+                    <span class="typing-cursor">|</span>
+                </h1>
+
+                <h3 class="home__subtitle">
+                    Support Engineer at 
+                    <a href="https://www.maxwellgeosystems.com/" target="_blank" rel="noopener noreferrer">
+                        Maxwell Geosystems
+                    </a>
+                </h3>
+
+                <p class="home__description">
+                    Support Engineer specializing in backend support, troubleshooting, and scalable web solutions. Passionate about building reliable systems and contributing to impactful engineering projects.
+                </p>
+
+                <div class="home__buttons">
+                    <a href="#contact" class="button button--flex">
+                        Contact Me <i class="uil uil-message button__icon"></i>
+                    </a>
+                    <a href="resume.pdf" class="button button--outline button--flex" download>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about section section--full reveal" id="about">
+    <h2 class="section__title">About</h2>
+    <span class="section__subtitle">Professional Profile</span>
+
+    <div class="about__container container grid">
+        <div>
+            <p class="about__description">
+                As a Support Engineer, I work on MissionOS, a data management platform for geotechnical and project monitoring. I handle backend support, troubleshooting, and feature enhancements using Core PHP, SQL, and JavaScript, while collaborating with engineering teams and clients to ensure reliable data acquisition, monitoring, and custom module development.
+            </p>
+
+            <div class="about_info">
+                <div>
+                    <span class="about__info-title">Role</span>
+                    <span class="about__info-name">Support Engineer</span>
+                </div>
+                <div>
+                    <span class="about__info-title">Company</span>
+                    <span class="about__info-name">
+                        <a href="https://www.maxwellgeosystems.com/" target="_blank" rel="noopener noreferrer">
+                            Maxwell Geosystems
+                        </a>
+                    </span>
+                </div>
+                <div>
+                    <span class="about__info-title">Work Location</span>
+                    <span class="about__info-name">Ernakulam, Kerala</span>
+                </div>
+                <div>
+                    <span class="about__info-title">Native</span>
+                    <span class="about__info-name">Kannur, Kerala</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="skills section section--full reveal" id="skills">
+    <h2 class="section__title">Skills & Expertise</h2>
+    <span class="section__subtitle">Technical Strengths</span>
+
+    <div class="skills__container container grid">
+
+        <div class="skills__content skills__open">
+            <div class="skills__header">
+                <i class="uil uil-brackets-curly skills__icon"></i>
+                <div>
+                    <h1 class="skills__title">Backend & Programming</h1>
+                </div>
+                <i class="uil uil-angle-down skills__arrow"></i>
+            </div>
+
+            <div class="skills__list grid">
+                <div class="skills__data"><h3 class="skills__name">Core PHP</h3></div>
+                <div class="skills__data"><h3 class="skills__name">SQL & MySQL</h3></div>
+                <div class="skills__data"><h3 class="skills__name">JavaScript</h3></div>
+                <div class="skills__data"><h3 class="skills__name">OOPs & Data Structures</h3></div>
+                <div class="skills__data"><h3 class="skills__name">Git & Version Control</h3></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="footer__bg">
+        <div class="footer__container container grid">
+            <div>
+                <h1 class="footer__title">Ashwin Krishna E</h1>
+                <span class="footer__subtitle">Support Engineer</span>
+            </div>
+        </div>
+        <p class="footer__copy">© 2026 Ashwin Krishna E. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>                    <i class="uil uil-instagram"></i>
                 </a>
             </div>
             <div class="home__img">
@@ -251,3 +380,4 @@
 </div>
 </body>
 </html>
+
